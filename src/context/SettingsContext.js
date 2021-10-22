@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const SettingContext = createContext();
+export const SettingsContext = createContext();
 
 const SettingsContextProvider = (props) => {
   const [pomodoro, setPomodoro] = useState(0);
@@ -15,7 +15,7 @@ const SettingsContextProvider = (props) => {
     setTimertime(executing);
   }
 
-  // start animation fn
+  // start animation
   function startTimer() {
     setStartAnimate(true);
   }
@@ -24,7 +24,15 @@ const SettingsContextProvider = (props) => {
     setStartAnimate(false);
   }
 
-  function stopTimer() {
+  const children = ({ remainingTime }) => {
+    const hours = Math.floor(remainingTime / 3600);
+    const minutes = Math.floor((remainingTime % 3600) / 60);
+    const seconds = remainingTime % 60;
+
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+  function stopAnimate() {
     setStartAnimate(false);
   }
 
@@ -32,6 +40,7 @@ const SettingsContextProvider = (props) => {
     setExecuting({});
     setPomodoro(0);
   };
+
   //실행
   const updateExecute = (updatedSettings) => {
     setExecuting(updatedSettings);
@@ -54,18 +63,10 @@ const SettingsContextProvider = (props) => {
     }
   };
 
-  const children = ({ remainingTime }) => {
-    const hours = Math.floor(remainingTime / 3600);
-    const minutes = Math.floor((remainingTime % 3600) / 60);
-    const seconds = remainingTime % 60;
-
-    return `${hours}:${minutes}:${seconds}`;
-  };
-
   return (
-    <SettingContext.Provider
+    <SettingsContext.Provider
       value={{
-        stopTimer,
+        stopAnimate,
         updateExecute,
         executing,
         pomodoro,
@@ -78,7 +79,7 @@ const SettingsContextProvider = (props) => {
       }}
     >
       {props.children}
-    </SettingContext.Provider>
+    </SettingsContext.Provider>
   );
 };
 

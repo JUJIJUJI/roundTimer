@@ -1,13 +1,33 @@
 import React, { useContext, useState } from "react";
-import { SettingContext } from "../context/SettingsContext";
+import styled, { keyframes } from "styled-components";
+import { SettingsContext } from "../context/SettingsContext";
 import Button from "./Button";
 
+const showAnimate = keyframes`
+    0% {
+      opacity: 0;
+      
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-150px);
+    }
+  `;
+
+const Div = styled.div`
+  opacity: 0;
+  animation: ${showAnimate} 1s infinite;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+`;
+
 const SetPomodoro = () => {
-  const { updateExecute } = useContext(SettingContext);
+  const { updateExecute } = useContext(SettingsContext);
   const [newTimer, setNewTimer] = useState({
     //default value
-    work: 0.3, //0.3 minutes
-    break: 0.2,
+    work: 0, //0 second
+    break: 0,
     active: "work",
   });
 
@@ -36,25 +56,32 @@ const SetPomodoro = () => {
     updateExecute(newTimer);
   };
   return (
-    <div className="form-container">
+    <Div className="form-container">
       <form noValidate>
         <div className="input-wrapper">
-          <input
-            className="input"
-            name="work"
-            onChange={handleChange}
-            value={newTimer.work}
-          />
-          <input
-            className="input"
-            name="break"
-            onChange={handleChange}
-            value={newTimer.break}
-          />
+          <label>
+            집중시간 :
+            <input
+              className="input"
+              name="work"
+              onChange={handleChange}
+              value={newTimer.work}
+            />
+          </label>
+          <br />
+          <lable>
+            휴식시간 :
+            <input
+              className="input"
+              name="break"
+              onChange={handleChange}
+              value={newTimer.break}
+            />
+          </lable>
         </div>
         <Button title="Set Timer" _callback={handleSubmit} />
       </form>
-    </div>
+    </Div>
   );
 };
 
