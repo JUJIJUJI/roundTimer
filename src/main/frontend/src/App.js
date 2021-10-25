@@ -53,40 +53,29 @@ const App = () => {
 
   return (
     <div className="container">
-      {pomodoro === 0 ? (
+      {pomodoro !== 0 ? (
         <>
-          <Splash>
-            <img src={logo} className="App-logo" alt="logo" />
-            <Small>집중하고 싶은 사람들을 위한</Small>
-            <h1>Round-Timer</h1>
-          </Splash>
-          <SetPomodoro />
-        </>
-      ) : (
-        <>
-          <ul className="labels">
-            <li>
-              <Button
-                title="Work"
-                activeClass={
-                  executing.active === "work" ? "active-label" : undefined
-                }
-                _callback={() => {
-                  setCurrentTimer("work");
-                }}
-              />
-              <Button
-                title="break"
-                activeClass={
-                  executing.active === "break" ? "active-label" : undefined
-                }
-                _callback={() => {
-                  setCurrentTimer("break");
-                }}
-              />
-            </li>
-          </ul>
+          <div className="labels">
+            <Button
+              title="Work"
+              activeClass={
+                executing.active === "work" ? "active-label" : undefined
+              }
+              _callback={() => setCurrentTimer("work")}
+            />
+
+            <Button
+              title="rest"
+              activeClass={
+                executing.active === "rest" ? "active-label" : undefined
+              }
+              _callback={() => {
+                setCurrentTimer("rest");
+              }}
+            />
+          </div>
           <Button title="Settings" _callback={SettingBtn} />
+
           <div className="time-container">
             <div className="time-wrapper">
               <div className="time-spot"></div>
@@ -98,7 +87,7 @@ const App = () => {
                 <span></span>
               </div>
               <CountdownAnimation
-                // key={pomodoro}
+                key={pomodoro}
                 timer={pomodoro}
                 animate={startAnimate}
               >
@@ -115,17 +104,18 @@ const App = () => {
             </div>
           </div>
           <div className="button-wrapper">
-            <Button
-              title="Start"
-              className={!startAnimate ? "active" : undefined}
-              _callback={startTimer}
-            />
-            <Button
-              title="Pause"
-              className={startAnimate ? "active" : undefined}
-              _callback={pauseTimer}
-            />
+            <Button title="Start" _callback={startTimer} />
+            <Button title="Pause" _callback={pauseTimer} />
           </div>
+        </>
+      ) : (
+        <>
+          <Splash>
+            <img src={logo} className="App-logo" alt="logo" />
+            <Small>집중하고 싶은 사람들을 위한</Small>
+            <h1>Round-Timer</h1>
+          </Splash>
+          <SetPomodoro />
         </>
       )}
     </div>

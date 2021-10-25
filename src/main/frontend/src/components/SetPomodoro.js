@@ -41,7 +41,7 @@ const SetPomodoro = () => {
           work: parseInt(valueNanToZero),
         });
         break;
-      case "break":
+      case "rest":
         setNewTimer({
           ...newTimer,
           break: parseInt(valueNanToZero),
@@ -55,30 +55,33 @@ const SetPomodoro = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateExecute(newTimer);
+    // console.log(newTimer);
   };
   return (
     <Div className="form-container">
-      <form noValidate>
+      <form noValidate onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label>
+          <label htmlFor="work">
             집중시간
             <input
               className="input"
               name="work"
               onChange={handleChange}
               value={newTimer.work}
+              id="work"
             />
             분
           </label>
           <br />
           <br />
-          <lable>
+          <lable htmlFor="rest">
             휴식시간
             <input
               className="input"
-              name="break"
+              name="rest"
               onChange={handleChange}
               value={newTimer.break}
+              id="rest"
             />
             분
           </lable>

@@ -47,12 +47,13 @@ code {
   align-items: center;
 }
 .container .labels {
-  list-style: none;
+  /* list-style: none; */
   text-transform: uppercase;
   font-size: 0.8rem;
   padding: 0.3rem 0.3rem;
   background-color: skyblue;
   border-radius: 1.5rem;
+  display: flex;
 }
 
 .active-label {
@@ -70,7 +71,7 @@ button {
   background: skyblue;
   min-width: 10px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 }
 
 .timer-container {

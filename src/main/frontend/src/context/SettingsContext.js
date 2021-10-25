@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const SettingsContext = createContext();
 
-const SettingsContextProvider = (props) => {
+function SettingsContextProvider(props) {
   const [pomodoro, setPomodoro] = useState(0);
   const [executing, setExecuting] = useState({});
   const [startAnimate, setStartAnimate] = useState(false);
@@ -12,7 +12,7 @@ const SettingsContextProvider = (props) => {
       ...executing,
       active: active_state,
     });
-    setTimertime(executing);
+    setTimerTime(executing);
   }
 
   // start animation
@@ -25,16 +25,15 @@ const SettingsContextProvider = (props) => {
   }
 
   const children = ({ remainingTime }) => {
-    const hours = Math.floor(remainingTime / 3600);
-    const minutes = Math.floor((remainingTime % 3600) / 60);
-    const seconds = remainingTime % 60;
+    let hours = Math.floor(remainingTime / 3600);
+    let minutes = Math.floor((remainingTime % 3600) / 60);
+    let seconds = remainingTime % 60;
+    hours = hours < 10 ? `0${hours}` : hours;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
 
     return `${hours}:${minutes}:${seconds}`;
   };
-
-  function stopAnimate() {
-    setStartAnimate(false);
-  }
 
   const SettingBtn = () => {
     setExecuting({});
@@ -44,43 +43,45 @@ const SettingsContextProvider = (props) => {
   //실행
   const updateExecute = (updatedSettings) => {
     setExecuting(updatedSettings);
-    setTimertime(updatedSettings);
+    setTimerTime(updatedSettings);
   };
 
-  const setTimertime = (evaluate) => {
+  const setTimerTime = (evaluate) => {
     switch (evaluate.active) {
       case "work":
         setPomodoro(evaluate.work);
         break;
-
-      case "break":
+      case "rest":
         setPomodoro(evaluate.break);
         break;
-
       default:
         setPomodoro(0);
         break;
     }
   };
 
+  function stopAnimate() {
+    setStartAnimate(false);
+  }
+
   return (
     <SettingsContext.Provider
       value={{
-        stopAnimate,
-        updateExecute,
-        executing,
         pomodoro,
+        executing,
+        updateExecute,
         startAnimate,
         startTimer,
         pauseTimer,
+        children,
         SettingBtn,
         setCurrentTimer,
-        children,
+        stopAnimate,
       }}
     >
       {props.children}
     </SettingsContext.Provider>
   );
-};
+}
 
 export default SettingsContextProvider;
