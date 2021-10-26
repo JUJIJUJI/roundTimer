@@ -86,8 +86,8 @@ button {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 12px;
-  margin-bottom: -20%;
-  margin-top: -20%;
+  margin-bottom: -40%;
+  margin-top: -40%;
 }
 
 .time-spot {

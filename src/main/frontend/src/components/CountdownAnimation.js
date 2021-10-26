@@ -7,15 +7,17 @@ const CountdownAnimation = ({ key, timer, animate, children }) => {
 
   return (
     <CountdownCircleTimer
-      // key={key}
+      key={key}
       isPlaying={animate}
-      size={250}
+      size={260}
       duration={timer * 60}
       colors={[
-        ["#0033C4", 0.5],
-        ["#ff33C4", 0.5],
+        ["#23049D", 0.3],
+        ["#AA2EE6", 0.3],
+        ["#FF79CD", 0.3],
+        ["#FFDF6B", 0.3],
       ]}
-      strokeWidth={70}
+      strokeWidth={64}
       trailColor="#eeeeee"
       onComplete={() => {
         stopAnimate();
