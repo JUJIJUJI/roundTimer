@@ -13,7 +13,7 @@ hellojuju: backend
 Frontend: react, styled-component <br/>
 Backend:
 
-##화면
+## 화면
 ![roundtimer2](https://user-images.githubusercontent.com/29850466/138835035-b168418d-187c-4962-9efb-58958dff543b.png)
 ![roundtimer3](https://user-images.githubusercontent.com/29850466/138835039-49793f4c-3693-499e-bf2c-9b275d73e090.png)
 ![roundtimer4](https://user-images.githubusercontent.com/29850466/138835043-276b621d-227a-4ba0-b644-41e6feb64291.png)
