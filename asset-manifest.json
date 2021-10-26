@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/roundTimer/static/css/main.ed1d2680.chunk.css",
+    "main.js": "/roundTimer/static/js/main.bc3cb3de.chunk.js",
+    "main.js.map": "/roundTimer/static/js/main.bc3cb3de.chunk.js.map",
+    "runtime-main.js": "/roundTimer/static/js/runtime-main.effc66f9.js",
+    "runtime-main.js.map": "/roundTimer/static/js/runtime-main.effc66f9.js.map",
+    "static/js/2.dc0eb1d7.chunk.js": "/roundTimer/static/js/2.dc0eb1d7.chunk.js",
+    "static/js/2.dc0eb1d7.chunk.js.map": "/roundTimer/static/js/2.dc0eb1d7.chunk.js.map",
+    "index.html": "/roundTimer/index.html",
+    "static/css/main.ed1d2680.chunk.css.map": "/roundTimer/static/css/main.ed1d2680.chunk.css.map",
+    "static/js/2.dc0eb1d7.chunk.js.LICENSE.txt": "/roundTimer/static/js/2.dc0eb1d7.chunk.js.LICENSE.txt",
+    "static/media/logo.a501d266.svg": "/roundTimer/static/media/logo.a501d266.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.effc66f9.js",
+    "static/js/2.dc0eb1d7.chunk.js",
+    "static/css/main.ed1d2680.chunk.css",
+    "static/js/main.bc3cb3de.chunk.js"
+  ]
+}
