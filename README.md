@@ -14,7 +14,8 @@ Frontend: react, styled-component <br/>
 Backend:
 
 ## 화면
-![roundtimer2](https://user-images.githubusercontent.com/29850466/138835035-b168418d-187c-4962-9efb-58958dff543b.png)
-![roundtimer3](https://user-images.githubusercontent.com/29850466/138835039-49793f4c-3693-499e-bf2c-9b275d73e090.png)
-![roundtimer4](https://user-images.githubusercontent.com/29850466/138835043-276b621d-227a-4ba0-b644-41e6feb64291.png)
-![roundtimer5](https://user-images.githubusercontent.com/29850466/138835046-f39b4dfc-98f4-45ad-aaaa-395d342e7f34.png)
+
+![roundtimer2](https://user-images.githubusercontent.com/29850466/138835574-2a8af1c9-fa7a-4226-9dbc-28431d850846.png)
+![roundtimer3](https://user-images.githubusercontent.com/29850466/138835578-2597a64e-0fa2-44f2-b300-b0fdb0d22ccb.png)
+![roundtimer4](https://user-images.githubusercontent.com/29850466/138835581-554b7d09-cb0c-49c0-989b-968c3346c308.png)
+![roundtimer5](https://user-images.githubusercontent.com/29850466/138835566-109394c7-659a-4bc4-97e3-4c2ae39457d6.png)
